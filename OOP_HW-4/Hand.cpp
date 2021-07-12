@@ -11,6 +11,12 @@ void Hand::Add(Card* pCard)
 
 void Hand::Clear()
 {
+	vector<Card*>::iterator iter = m_Cards.begin();
+	for (iter = m_Cards.begin(); iter != m_Cards.end(); ++iter)
+	{
+		delete* iter;
+		*iter = 0;
+	}
 	m_Cards.clear();
 }
 
@@ -44,4 +50,5 @@ int Hand::GetTotal()
 
 Hand::~Hand()
 {
+	Clear();
 }
